@@ -19,6 +19,10 @@ namespace Webfastfood.Controllers
            
             
         }
+        public class KhachHang_
+        {
+            public KhachHang kh { get; set; }
+        }
         dtbFastFoodDataContext db = new dtbFastFoodDataContext();
         // GET: Admin
         public ActionResult Index()
@@ -246,6 +250,26 @@ namespace Webfastfood.Controllers
 
             // return View(chiTietDDH);
             return RedirectToAction("DonHang", "Admin");
+        }
+        public ActionResult QLKH(int? page)
+        {
+            int pageNum = (page ?? 1);
+            int pageSize = 100;
+            return View(db.KhachHangs.ToList().OrderBy(n => n.IDKhachHang).ToPagedList(pageNum, pageSize));
+        }
+        
+        public ActionResult XoaKH(int id)
+        {
+
+            KhachHang khachHang = db.KhachHangs.FirstOrDefault(n => n.IDKhachHang == id);
+            if (khachHang == null)
+            {
+                Response.StatusCode = 404;
+                return RedirectToAction("QLKH", "Admin");
+            }
+            db.KhachHangs.DeleteOnSubmit(khachHang);
+            db.SubmitChanges();
+            return RedirectToAction("QLKH", "Admin");
         }
     }
 }

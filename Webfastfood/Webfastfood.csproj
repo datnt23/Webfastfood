@@ -154,6 +154,8 @@
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\structure.css" />
     <Content Include="Content\css\util.css" />
+    <Content Include="images\a1.jpg" />
+    <Content Include="images\a2.png" />
     <Content Include="images\bg-01.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\shop-homepage.css" />
@@ -327,6 +329,7 @@
     <Content Include="Views\Nguoidung\gioithieu.cshtml" />
     <Content Include="Views\FastFood\XoaChiTietDonHang.cshtml" />
     <Content Include="Views\Admin\ChiTiet.cshtml" />
+    <Content Include="Views\Admin\QLKH.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

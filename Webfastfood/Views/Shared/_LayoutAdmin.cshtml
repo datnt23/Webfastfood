@@ -49,6 +49,9 @@
                         @Html.ActionLink("QUẢN LÝ ĐƠN HÀNG", "DonHang", "Admin")
                     </li>
                     <li>
+                        @Html.ActionLink("QUẢN LÝ KHÁCH HÀNG", "QLKH", "Admin")
+                    </li>
+                    <li>
                         @Html.ActionLink("QUẢN LÝ MÓN ĂN", "SanPham", "Admin")
                     </li>
                 </ul>
@@ -86,6 +89,20 @@
     <script>
         function XoaDonHang(id) {
             if (confirm('Bạn có muốn xoá sản phẩm này khỏi giỏ hàng?'))
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/Delete/" + id,
+                    // data: q,
+                    success: function (result) {
+                        alert("Đã xoá thành công!");
+                        window.location.reload();
+                    }
+                });
+        }
+    </script>
+    <script>
+        function XoaKH(id) {
+            if (confirm('Bạn có muốn xoá Khách hàng này?'))
                 $.ajax({
                     type: "POST",
                     url: "/Admin/Delete/" + id,
